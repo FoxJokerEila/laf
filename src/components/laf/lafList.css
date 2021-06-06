@@ -1,0 +1,12 @@
+.lafList {
+  /* display: inline-block; */
+  display: flex;
+  width: 50%;
+  /* display: inline-block; */
+}
+
+.tag {
+  width: 100%;
+  height: 25px;
+  font-size: 20px;
+}
