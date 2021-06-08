@@ -9,11 +9,12 @@ import './laf.css'
 
 const { Search } = Input
 const onSearch = value => console.log(value)
+const types = ['失物招领', '寻物启事']
 
 function Laf () {
   return (
     <div id='laf'>
-      <NewLaf />
+      <NewLaf types={types} />
       <Divider />
       <Layout className='list'>
         <Search

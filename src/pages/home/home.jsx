@@ -17,7 +17,7 @@ const Home = () => {
 
   const location = useLocation()
   console.log(location.pathname)
-  let page = location.pathname === '/others' ? '2' : '1'
+  let page = location.pathname === '/home/others' ? '2' : '1'
   const changePage = num => {
     page = num
   }
@@ -29,7 +29,7 @@ const Home = () => {
           <Menu.Item
             key='1'
             onClick={() => {
-              changeRoute('/laf')
+              changeRoute('/home/laf')
               changePage('1')
             }}
           >
@@ -38,7 +38,7 @@ const Home = () => {
           <Menu.Item
             key='2'
             onClick={() => {
-              changeRoute('/others')
+              changeRoute('/home/others')
               changePage('2')
             }}
           >
@@ -51,8 +51,8 @@ const Home = () => {
           <Suspense fallback={<Spin />}>
             <Switch>
               <Route path='/' exact component={Laf} />
-              <Route path='/laf' component={Laf} />
-              <Route path='/others' component={Others} />
+              <Route path='/home/laf' component={Laf} />
+              <Route path='/home/others' component={Others} />
             </Switch>
           </Suspense>
           {/* <Route /> */}

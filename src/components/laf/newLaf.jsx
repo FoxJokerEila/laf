@@ -25,7 +25,7 @@ const validateMessages = {
   }
 }
 
-const NewLaf = () => {
+const NewLaf = props => {
   const onFinish = values => {
     console.log(values)
   }
@@ -66,12 +66,18 @@ const NewLaf = () => {
         >
           <Input />
         </Form.Item>
-        <Form.Item name='type' label='类型' rules={[{ required: true }]}>
-          <Select placeholder='' onChange={handleChange} allowClear>
-            <Option value='wait'>失物招领</Option>
-            <Option value='find'>寻物启事</Option>
-          </Select>
-        </Form.Item>
+        {props.types.length !== 0 && (
+          <Form.Item name='type' label='类型' rules={[{ required: true }]}>
+            <Select placeholder='' onChange={handleChange} allowClear>
+              <Option value='wait'>失物招领</Option>
+              <Option value='find'>寻物启事</Option>
+              list=
+              {props.types.map((type, index) => {
+                ;<Option value={index}>{type}</Option>
+              })}
+            </Select>
+          </Form.Item>
+        )}
         <Form.Item name={['user', 'introduction']} label='物品描述'>
           <Input.TextArea />
         </Form.Item>
