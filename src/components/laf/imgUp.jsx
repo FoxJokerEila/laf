@@ -47,5 +47,4 @@ const ImgUp = () => {
   )
 }
 
-// ReactDOM.render(<Demo />, mountNode);
 export default ImgUp

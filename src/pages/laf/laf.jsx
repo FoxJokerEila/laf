@@ -8,7 +8,6 @@ import { Input, Space } from 'antd'
 import './laf.css'
 
 const { Search } = Input
-const { Header, Footer, Sider, Content } = Layout
 const onSearch = value => console.log(value)
 
 function Laf () {
@@ -17,7 +16,6 @@ function Laf () {
       <NewLaf />
       <Divider />
       <Layout className='list'>
-        {/* <Content> */}
         <Search
           placeholder='请输入关键字'
           allowClear
@@ -29,7 +27,6 @@ function Laf () {
         <br />
         <LafList type='失物招领' />
         <LafList type='寻物启事' />
-        {/* </Content> */}
       </Layout>
     </div>
   )

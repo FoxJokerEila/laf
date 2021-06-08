@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 function Others () {
-  return {
-
-  }
+  return <div></div>
 }
 
 export default Others

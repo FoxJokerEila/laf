@@ -13,7 +13,6 @@ const layout = {
     span: 16
   }
 }
-/* eslint-disable no-template-curly-in-string */
 
 const validateMessages = {
   required: '${label} is required!',
@@ -25,7 +24,6 @@ const validateMessages = {
     range: '${label} must be between ${min} and ${max}'
   }
 }
-/* eslint-enable no-template-curly-in-string */
 
 const NewLaf = () => {
   const onFinish = values => {
@@ -74,9 +72,6 @@ const NewLaf = () => {
             <Option value='find'>寻物启事</Option>
           </Select>
         </Form.Item>
-        {/* <Form.Item name={['user', 'website']} label='Website'>
-        <Input />
-      </Form.Item> */}
         <Form.Item name={['user', 'introduction']} label='物品描述'>
           <Input.TextArea />
         </Form.Item>

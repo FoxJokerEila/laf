@@ -1,5 +1,4 @@
 import './home.css'
-// import Route from './route/route'
 import { Switch, Route } from 'react-router-dom'
 import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { useHistory } from 'react-router-dom'
@@ -8,21 +7,17 @@ import { Layout, Menu, Spin } from 'antd'
 
 const Laf = lazy(() => import('../../pages/laf/laf'))
 const Others = lazy(() => import('../../pages/others/others'))
-
 const { Header, Content, Footer } = Layout
 
 const Home = () => {
   let history = useHistory()
-  // const [headtag, setHeadtag] = useState('首页')
   const changeRoute = url => {
-    // setHeadtag(headtag)
     history.push(url)
   }
 
   const location = useLocation()
   console.log(location.pathname)
   let page = location.pathname === '/others' ? '2' : '1'
-  // let page = '1'
   const changePage = num => {
     page = num
   }
