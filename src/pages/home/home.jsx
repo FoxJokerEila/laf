@@ -7,7 +7,7 @@ import { Layout, Menu, Spin } from 'antd'
 
 const Laf = lazy(() => import('../../pages/laf/laf'))
 const Others = lazy(() => import('../../pages/others/others'))
-const Post = lazy(() => import('../../pages/post/post'))
+const User = lazy(() => import('../../pages/user/user'))
 const { Header, Content, Footer } = Layout
 
 const Home = () => {
@@ -19,7 +19,7 @@ const Home = () => {
   const location = useLocation()
   console.log(location.pathname)
   let page = location.pathname === '/home/others' ? '2' : '1'
-  if (location.pathname.includes('/post/post') === true) page = '3'
+  if (location.pathname.includes('/home/user') === true) page = '3'
   const changePage = num => {
     page = num
   }
@@ -49,7 +49,7 @@ const Home = () => {
           <Menu.Item
             key='3'
             onClick={() => {
-              changeRoute('/post/post')
+              changeRoute('/home/user')
               changePage('3')
             }}
             className='user'
@@ -65,7 +65,7 @@ const Home = () => {
               <Route path='/' exact component={Laf} />
               <Route path='/home/laf' component={Laf} />
               <Route path='/home/others' component={Others} />
-              <Route path='/post/post' component={Post} />
+              <Route path='/home/user' component={User} />
             </Switch>
           </Suspense>
           {/* <Route /> */}
