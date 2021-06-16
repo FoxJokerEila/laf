@@ -10,8 +10,34 @@ import './others.css'
 const { Search } = Input
 const onSearch = value => console.log(value)
 const types = []
+const data = [
+  {
+    type: '找人',
+    cards: []
+  },
+  {
+    type: '找♂对象',
+    cards: []
+  },
+  {
+    type: '找♀对象',
+    cards: []
+  },
+  {
+    type: '找工作',
+    cards: []
+  }
+]
 
-function Others () {
+function Others (props) {
+  // useEffect(() => {
+  //   props.data = [
+  //     {
+  //       type: '找人',
+  //       cards: []
+  //     }
+  //   ]
+  // }, [])
   return (
     <div id='others'>
       <NewLaf types={types} />
@@ -28,6 +54,9 @@ function Others () {
         <br />
         {/* <LafList type='失物招领' />
         <LafList type='寻物启事' /> */}
+        {data.map((item, index) => {
+          return <LafList type={item.type} cards={item.cards}></LafList>
+        })}
       </Layout>
     </div>
   )

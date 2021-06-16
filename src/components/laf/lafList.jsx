@@ -30,16 +30,25 @@ const LafList = props => {
     })
   )
 
+  // 对接时使用这个进行初始化
+  // const [listItems, setlistItems] = useState(
+  //   props.cards.map((item, index) => {
+  //     return <Cardt info={item} key={index} />
+  //   })
+  // )
+
   return (
     <div className='lafList'>
       <ul>
         <Tag
           color={props.type === '失物招领' ? '#55acee' : '#3b5999'}
+          // color={'#55acee'}
           className='tag'
         >
           {props.type}
         </Tag>
         {props.type === '失物招领' ? listItems : listItems1}
+        {/* {listItems} */}
       </ul>
     </div>
   )
