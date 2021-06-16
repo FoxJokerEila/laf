@@ -46,15 +46,16 @@ const Home = () => {
           >
             其他信息
           </Menu.Item>
-          {/* <Menu.Item
+          <Menu.Item
             key='3'
             onClick={() => {
               changeRoute('/post/post')
               changePage('3')
             }}
+            className='user'
           >
-            其他信息
-          </Menu.Item> */}
+            用户
+          </Menu.Item>
         </Menu>
       </Header>
       <Content style={{ padding: '0 50px' }}>
