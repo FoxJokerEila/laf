@@ -24,6 +24,7 @@ function Login() {
             res => {
                 if (res.code === 0) {
                     localStorage.setItem("token", res.data.token)
+                    localStorage.setItem("role", res.data.role)
                     // message.success(`${res.msg}`)
                     history.push('/home/laf')
                 } else {
@@ -40,7 +41,7 @@ function Login() {
                 <Input size="middle" placeholder="学号" prefix={<UserOutlined />} style={{ marginBottom: '5vh' }} onChange={
                     e => handleSaveInput(e, "userName")
                 } />
-                <Input size='middle' placeholder="密码" prefix={<UnlockOutlined />} style={{ marginBottom: '5vh' }} onChange={
+                <Input size='middle' type="password" placeholder="密码" prefix={<UnlockOutlined />} style={{ marginBottom: '5vh' }} onChange={
                     e => handleSaveInput(e, "password")
                 } />
                 <span className="login-link" style={{ marginBottom: '5vh' }}>
