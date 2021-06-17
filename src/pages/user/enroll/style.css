@@ -1,0 +1,23 @@
+.enroll{
+    background-image: url(https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg);
+    background-repeat: no-repeat;
+    background-position: center 110px;
+    background-size: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.enroll-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 50vh;
+}
+.enroll-title{
+    font-weight: 1000;
+    font-size: xx-large;
+    margin-bottom: 5vh;
+}
