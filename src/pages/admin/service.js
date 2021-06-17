@@ -30,7 +30,7 @@ export const delLost = async (data) => {
     await instance({
         method: 'DELETE',
         url: '/lostCategory/delete',
-        parms: data
+        params: data
     }).then((res)=>{
         resp = res.data;
     })
@@ -42,7 +42,7 @@ export const delOther = async (data) => {
     await instance({
         method: 'DELETE',
         url: '/informationCategory/delete',
-        parms: data
+        params: data
     }).then((res)=>{
         resp = res.data;
     })
@@ -54,7 +54,7 @@ export const addLost = async (data) => {
     await instance({
         method: 'POST',
         url: '/lostCategory/insert',
-        parms: data
+        data: qs.stringify(data)
     }).then((res)=>{
         resp = res.data;
     })
@@ -66,7 +66,7 @@ export const addOther = async (data) => {
     await instance({
         method: 'POST',
         url: '/informationCategory/insert',
-        parms: data
+        data: qs.stringify(data)
     }).then((res)=>{
         resp = res.data;
     })
