@@ -24,7 +24,7 @@ function Login() {
             res => {
                 if (res.code === 0) {
                     localStorage.setItem("token", res.data.token)
-                    message.success(`${res.msg}`)
+                    // message.success(`${res.msg}`)
                     history.push('/home/laf')
                 } else {
                     message.error(`${res.msg}`)
@@ -37,7 +37,7 @@ function Login() {
         <div className='Login'>
             <span className='login-title'>西南石油大学信息共享平台</span>
             <div className='login-from'>
-                <Input size="middle" placeholder="账号" prefix={<UserOutlined />} style={{ marginBottom: '5vh' }} onChange={
+                <Input size="middle" placeholder="学号" prefix={<UserOutlined />} style={{ marginBottom: '5vh' }} onChange={
                     e => handleSaveInput(e, "userName")
                 } />
                 <Input size='middle' placeholder="密码" prefix={<UnlockOutlined />} style={{ marginBottom: '5vh' }} onChange={

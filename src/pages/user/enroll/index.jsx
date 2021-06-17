@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Input, Button, message } from 'antd';
-import { UserOutlined, UnlockOutlined } from '@ant-design/icons';
+import { UserOutlined, UnlockOutlined, PhoneOutlined, IdcardOutlined } from '@ant-design/icons';
 import {reqEnroll} from './service'
 import "./style.css"
 
@@ -36,10 +36,10 @@ function Enroll() {
             <div className="enroll-content" >
                 <span className="enroll-title">注册信息</span>
                 <Input size="middle" placeholder="昵称" prefix={<UserOutlined />} style={{ marginBottom: '5vh' }} onChange={e => handleSaveInput(e, "nickName")} />
-                <Input size="middle" placeholder="电话" prefix={<UserOutlined />} style={{ marginBottom: '5vh' }} onChange={e => handleSaveInput(e, "phone")} />
+                <Input size="middle" placeholder="电话" prefix={<PhoneOutlined />} style={{ marginBottom: '5vh' }} onChange={e => handleSaveInput(e, "phone")} />
                 <Input size="middle" placeholder="真实姓名" prefix={<UserOutlined />} style={{ marginBottom: '5vh' }} onChange={e => handleSaveInput(e, "realName")} />
-                <Input size="middle" placeholder="学号" prefix={<UserOutlined />} style={{ marginBottom: '5vh' }} onChange={e => handleSaveInput(e, "userName")} />
-                <Input size="middle" placeholder="密码" prefix={<UserOutlined />} style={{ marginBottom: '5vh' }} onChange={e => handleSaveInput(e, "password")} />
+                <Input size="middle" placeholder="学号" prefix={<IdcardOutlined />} style={{ marginBottom: '5vh' }} onChange={e => handleSaveInput(e, "userName")} />
+                <Input size="middle" placeholder="密码" prefix={<UnlockOutlined />} style={{ marginBottom: '5vh' }} onChange={e => handleSaveInput(e, "password")} />
                 <Button type="primary" style={{ marginBottom: '5vh', width: '50vh' }} onClick={() =>enroll()}>注册</Button>
             </div>
         </div>
