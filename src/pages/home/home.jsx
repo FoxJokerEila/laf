@@ -8,6 +8,7 @@ import { Layout, Menu, Spin } from 'antd'
 const Laf = lazy(() => import('../../pages/laf/laf'))
 const Others = lazy(() => import('../../pages/others/others'))
 const User = lazy(() => import('../../pages/user/user'))
+const Admin = lazy(() => import('../../pages/admin/index'))
 const { Header, Content, Footer } = Layout
 
 const Home = () => {
@@ -123,13 +124,14 @@ const Home = () => {
               <Route path='/home/laf' component={Laf} />
               <Route path='/home/others' component={Others} />
               <Route path='/home/user' component={User} />
+              <Route path='/home/admin' component={Admin} />
             </Switch>
           </Suspense>
           {/* <Route /> */}
         </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>
-        Ant Design ©2021 Created by BlackTea
+        Ant Design ©2021 Created by BlackTea & Jazzl
       </Footer>
     </Layout>
   )

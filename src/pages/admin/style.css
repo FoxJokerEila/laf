@@ -1,0 +1,5 @@
+.admin-card{
+    display: flex;
+    justify-content: center;
+    width: 600vh;
+}

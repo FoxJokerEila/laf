@@ -25,6 +25,7 @@ function Login() {
                 if (res.code === 0) {
                     localStorage.setItem("token", res.data.token)
                     localStorage.setItem("role", res.data.role)
+                    localStorage.setItem("userid",res.data.userId)
                     // message.success(`${res.msg}`)
                     history.push('/home/laf')
                 } else {
