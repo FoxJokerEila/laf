@@ -48,7 +48,7 @@ function Laf () {
   }, [])
   return (
     <div id='laf'>
-      <NewLaf types={tags} />
+      <NewLaf types={tags} flag={1} />
       <Divider />
       <Layout className='list'>
         <Search
