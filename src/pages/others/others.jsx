@@ -6,8 +6,8 @@ import Tags from '../../components/tags/tags'
 import fuzzyQuery from '../../service/information/fuzzyQuery'
 import selectAll from '../../service/informationCategory/selectAll'
 
-// import { OthersContext } from '../../model/context'
 import { LafContext } from '../../model/context'
+import { list } from '../../model/list'
 
 import { Layout } from 'antd'
 import { Divider } from 'antd'
@@ -16,36 +16,21 @@ import { Input } from 'antd'
 import './others.css'
 
 const { Search } = Input
-const onSearch = value => console.log(value)
-const types = ['1', '2']
-// const data = [
-//   {
-//     type: '找人',
-//     cards: []
-//   },
-//   {
-//     type: '找♂对象',
-//     cards: []
-//   },
-//   {
-//     type: '找♀对象',
-//     cards: []
-//   },
-//   {
-//     type: '找工作',
-//     cards: []
-//   }
-// ]
-
-const tags = [
-  { type: '失物招领', id: 0 },
-  { type: '寻物启事', id: 1 },
-  { type: '电子产品', id: 2 }
-]
 
 function Others (props) {
+  const LIST = list()
   const [tags, settags] = useState([])
-  const [list, setlist] = useState([])
+  // const [list, setlist] = useState([])
+  const onSearch = value => {
+    console.log(value)
+    fuzzyQuery({ key: value })
+      .then(res => {
+        LIST.setlis(res.data.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
   useEffect(() => {
     selectAll()
       .then(res => {
@@ -58,7 +43,7 @@ function Others (props) {
 
     fuzzyQuery()
       .then(res => {
-        setlist(res.data.data)
+        LIST.setlis(res.data.data)
         console.log(res.data.data)
       })
       .catch(err => {
@@ -81,8 +66,8 @@ function Others (props) {
           onSearch={onSearch}
           className='search'
         />
-        <LafContext.Provider value={{ tags, list }}>
-          <Tags></Tags>
+        <LafContext.Provider value={{ tags, LIST }}>
+          <Tags flag={1}></Tags>
           <Divider />
           <LafList />
         </LafContext.Provider>

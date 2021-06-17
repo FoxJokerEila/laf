@@ -5,11 +5,7 @@ import './lafList.css'
 import { LafContext } from '../../model/context'
 
 const LafList = props => {
-  const { list } = useContext(LafContext)
-  // const [listItems, setlistItems] = useState(null)
-  // useEffect(() => {
-  //   setlistItems()
-  // }, [])
+  const { LIST } = useContext(LafContext)
 
   return (
     <div className='lafList'>
@@ -21,7 +17,7 @@ const LafList = props => {
         >
           {props.type}
         </Tag>
-        {list.map((item, index) => {
+        {LIST.lis.map((item, index) => {
           return (
             <Cardt
               info={item}
@@ -29,7 +25,6 @@ const LafList = props => {
             />
           )
         })}
-        {/* {listItems} */}
       </ul>
     </div>
   )

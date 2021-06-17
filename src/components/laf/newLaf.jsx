@@ -1,9 +1,12 @@
-import { Form, Input, InputNumber, Button } from 'antd'
+import { Form, Input, Button } from 'antd'
 import ImgUp from './imgUp'
 import { Select } from 'antd'
 import { DatePicker, Space } from 'antd'
 import moment from 'moment'
 import './newLaf.css'
+
+import insert from '../../service/lost/insert'
+import insertInformation from '../../service/information/insert'
 
 const { Option } = Select
 const dateFormat = 'YYYY-MM-DD'
@@ -22,12 +25,31 @@ const validateMessages = {
 }
 
 const NewLaf = props => {
+  const form = {}
   const onFinish = values => {
-    console.log(values)
+    // console.log(values)
+    form.flag = values.flag
+    form.pickupPlace = values.pickupPlace
+    // form.pickupTime = values.pickupTime._i
+    form.categoryId = values.typeId
+
+    form.describe = values.describe
+
+    // form.time = values.pickupTime._i
+    form.informationCategoryId = form.typeId
+    form.contactInformation = values.contactInformation
+    console.log(form)
+    if (form.flag) {
+      insert(form)
+    } else {
+      insertInformation(form)
+    }
   }
 
   function onChange (date, dateString) {
     console.log(date, dateString)
+    form.pickupTime = dateString
+    form.time = dateString
   }
 
   function handleChange (value) {
@@ -44,17 +66,6 @@ const NewLaf = props => {
         layout='vertical'
         className='lafForm'
       >
-        {/* <Form.Item
-          name={['user', 'name']}
-          label='标题'
-          rules={[
-            {
-              required: true
-            }
-          ]}
-        >
-          <Input />
-        </Form.Item> */}
         <Form.Item
           name={'contactInformation'}
           label='联系方式'
@@ -112,7 +123,7 @@ const NewLaf = props => {
         )}
 
         {props.types.length !== 0 && (
-          <Form.Item name='type' label='类型' rules={[{ required: true }]}>
+          <Form.Item name='typeId' label='类型' rules={[{ required: true }]}>
             <Select placeholder='' onChange={handleChange} allowClear>
               {props.types.map((item, index) => {
                 return (
@@ -127,7 +138,7 @@ const NewLaf = props => {
             </Select>
           </Form.Item>
         )}
-        <Form.Item name={'introduction'} label='物品描述'>
+        <Form.Item name={'describe'} label='物品描述'>
           <Input.TextArea />
         </Form.Item>
         <Form.Item name={'imgs'} label='图片'>

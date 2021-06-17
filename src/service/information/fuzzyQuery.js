@@ -6,7 +6,7 @@ const fuzzyQuery = function (data) {
     method: 'get',
     url: '/information/fuzzyQuery',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    data: qs.stringify(data)
+    params: data
   })
 }
 

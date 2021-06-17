@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Upload } from 'antd'
 import ImgCrop from 'antd-img-crop'
 
-const ImgUp = () => {
+const ImgUp = props => {
   const [fileList, setFileList] = useState([
     // {
     //   uid: '-1',
@@ -35,7 +35,7 @@ const ImgUp = () => {
   return (
     <ImgCrop rotate>
       <Upload
-        action='https://www.mocky.io/v2/5cc8019d300000980a055e76'
+        action='https://192.168.1.113:8088/lost/insert'
         listType='picture-card'
         fileList={fileList}
         onChange={onChange}

@@ -4,6 +4,9 @@ import { Tag } from 'antd'
 import './tags.css'
 
 import { LafContext } from '../../model/context'
+import { list } from '../../model/list'
+
+import fuzzyQuery from '../../service/lost/fuzzyQuery'
 
 const colors = [
   'magenta',
@@ -19,10 +22,9 @@ const colors = [
 ]
 
 const Tags = props => {
+  const LIST = list()
   const { tags } = useContext(LafContext)
-  // console.log(props.tags)
-  // const number = props.tags.length == 2 ? changeLafN() : changeOthersN()
-  const number = changeLafN()
+  const number = props.flag === 1 ? changeOthersN() : changeLafN()
   return (
     <div id='tagz'>
       {tags.map((tag, index) => {
@@ -39,6 +41,42 @@ const Tags = props => {
           </Tag>
         )
       })}
+      {props.flag === 0 && (
+        <Tag
+          className='searchTag'
+          key={999}
+          color='geekblue'
+          onClick={() => {
+            fuzzyQuery({ flag: 1 })
+              .then(res => {
+                LIST.setlis(res.data.data)
+              })
+              .catch(err => {
+                console.log(err)
+              })
+          }}
+        >
+          <span>失物招领</span>
+        </Tag>
+      )}
+      {props.flag === 0 && (
+        <Tag
+          className='searchTag'
+          key={998}
+          color='geekblue'
+          onClick={() => {
+            fuzzyQuery({ flag: 0 })
+              .then(res => {
+                LIST.setlis(res.data.data)
+              })
+              .catch(err => {
+                console.log(err)
+              })
+          }}
+        >
+          <span>寻物启事</span>
+        </Tag>
+      )}
     </div>
   )
 }
