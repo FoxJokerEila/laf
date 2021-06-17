@@ -15,7 +15,7 @@ const layout = {
 }
 
 const validateMessages = {
-  required: '${label} is required!',
+  required: '请填写${label}!',
   types: {
     email: '${label} is not a valid email!',
     number: '${label} is not a valid number!'
@@ -66,14 +66,36 @@ const NewLaf = props => {
         >
           <Input />
         </Form.Item>
+
+        {props.types.length !== 0 && (
+          <Form.Item
+            name='flag'
+            label='失与寻'
+            rules={[
+              {
+                required: true
+              }
+            ]}
+          >
+            <Select>
+              <Select.Option value={0}>寻物启事</Select.Option>
+              <Select.Option value={1}>失物招领</Select.Option>
+            </Select>
+          </Form.Item>
+        )}
+
         {props.types.length !== 0 && (
           <Form.Item name='type' label='类型' rules={[{ required: true }]}>
             <Select placeholder='' onChange={handleChange} allowClear>
-              <Option value='wait'>失物招领</Option>
-              <Option value='find'>寻物启事</Option>
-              list=
-              {props.types.map((type, index) => {
-                ;<Option value={index}>{type}</Option>
+              {props.types.map((item, index) => {
+                return (
+                  <Option
+                    value={index}
+                    key={item.informationCategoryId || item.lostCategoryId}
+                  >
+                    {item.informationCategoryName || item.lostCategoryName}
+                  </Option>
+                )
               })}
             </Select>
           </Form.Item>

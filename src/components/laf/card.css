@@ -1,3 +1,5 @@
-.ant-card-meta-title {
-  /* color: red; */
+.cardt {
+  margin-top: 5px;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
 }
